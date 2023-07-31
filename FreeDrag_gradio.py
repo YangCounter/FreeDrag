@@ -244,16 +244,20 @@ with demo:
                 
                 _, img_show_original = model.value.g.synthesis(ws=ws_original,noise_mode='const')
             
-            with gr.Accordion('Video'):
-                images_total = gr.State([])
-                with gr.Row():
-                    with gr.Column(min_width=100):
-                      if_save_video = gr.Radio(["True","False"],value="False",label="if save video")
-                    with gr.Column(min_width=100):
-                      frame_rate = gr.Number(label="Frame rate",value=5)
-                with gr.Row():
-                    with gr.Column(min_width=100):
-                      button_video = gr.Button('Save video', variant='primary')
+            # with gr.Accordion('Video'):
+            #     images_total = gr.State([])
+            #     with gr.Row():
+            #         with gr.Column(min_width=100):
+            #           if_save_video = gr.Radio(["True","False"],value="False",label="if save video")
+            #         with gr.Column(min_width=100):
+            #           frame_rate = gr.Number(label="Frame rate",value=5)
+            #     with gr.Row():
+            #         with gr.Column(min_width=100):
+            #           button_video = gr.Button('Save video', variant='primary')
+            images_total = gr.State([])
+            if_save_video = False
+            frame_rate = 10
+            
 
             with gr.Accordion('Drag'):
 
