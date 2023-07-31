@@ -11,6 +11,8 @@ import os
 if not os.path.exists("./checkpoints/faces.pkl"):
     os.system("bash download_models.sh")  
 
+print(os.listdir(os.path.abspath('.') + '/checkpoints'))
+
 # export CUDA_LAUNCH_BLOCKING=1
 def load_model(model_name, device):
 
