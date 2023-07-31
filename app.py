@@ -49,7 +49,7 @@ class ModelWrapper:
 
 # model, points, mask, feature_size, train_layer_index,max_step, device,seed=2023,max_distance=3, d=0.5
 # img_show, current_target, step_number
-def on_drag(model, points, mask, max_iters,latent,sample_interval,l_expected,d_max,save_video,add_watermark):
+def on_drag(model, points, mask, max_iters,latent,sample_interval,l_expected,d_max,add_watermark):
 
     if len(points['handle']) == 0:
         raise gr.Error('You must select at least one handle point and target point.')
@@ -82,8 +82,8 @@ def on_drag(model, points, mask, max_iters,latent,sample_interval,l_expected,d_m
         else:
            image_clear = image
 
-        if save_video:
-            images_total.append(image_show)
+        # if save_video:
+        #     images_total.append(image_show)
         yield (image_show, step_number, latent_optimized,image_clear,images_total,gr.Button.update(interactive=True))
 
         if stop_flag:
@@ -261,9 +261,6 @@ with demo:
             #         with gr.Column(min_width=100):
             #           button_video = gr.Button('Save video', variant='primary')
             images_total = gr.State([])
-            if_save_video = False
-            frame_rate = 10
-            
 
             with gr.Accordion('Drag'):
 
@@ -293,11 +290,11 @@ with demo:
     image.upload(image_inversion,[image,res,model],[latent,image,image_clear,add_watermark]).then(reset_all,
                                         inputs=[image_clear,mask,add_watermark],outputs=[points,target_point,image,mask_show,mask,add_watermark])
 
-    button_drag.click(on_drag, inputs=[model, points, mask, max_step,latent,sample_interval,l_expected,d_max,if_save_video,add_watermark], \
+    button_drag.click(on_drag, inputs=[model, points, mask, max_step,latent,sample_interval,l_expected,d_max,add_watermark], \
                                outputs=[image, progress, latent, image_clear, images_total, button_stop])
     button_stop.click(change_stop_state)
     
-    button_video.click(save_video,inputs=[images_total,frame_rate],outputs=[images_total])
+    # button_video.click(save_video,inputs=[images_total,frame_rate],outputs=[images_total])
     reset_btn.click(reset_all,inputs=[image_clear,mask,add_watermark],outputs= [points,target_point,image,mask_show,mask,add_watermark]).then(on_show_save)
 
     button_new.click(new_image, inputs = [model,seed],outputs = [image, image_clear, latent,seed]).then(reset_all,
