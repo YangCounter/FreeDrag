@@ -7,7 +7,9 @@ from training import networks
 import legacy
 import cv2
 import os
-os.system("bash download_models.sh")  
+
+if not os.path.exists("./checkpoints/faces.pkl"):
+    os.system("bash download_models.sh")  
 
 # export CUDA_LAUNCH_BLOCKING=1
 def load_model(model_name, device):
