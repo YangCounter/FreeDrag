@@ -7,6 +7,7 @@ from training import networks
 import legacy
 import cv2
 import os
+os.system("bash download_models.sh")  
 
 # export CUDA_LAUNCH_BLOCKING=1
 def load_model(model_name, device):
@@ -177,7 +178,7 @@ if torch.cuda.is_available():
    device =  'cuda'
 else:
    device = 'cpu'
-   
+    
 demo = gr.Blocks()
 
 with demo:
@@ -310,5 +311,4 @@ with demo:
 
 
 if __name__ == "__main__":
-     os.system("bash download_models.sh")
      demo.queue(concurrency_count=3,max_size=20).launch(share=True)
