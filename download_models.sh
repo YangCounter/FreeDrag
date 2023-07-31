@@ -1,6 +1,4 @@
-mkdir checkpoints
 cd checkpoints
-rm *
 wget 'https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/stylegan2-ffhq-512x512.pkl'
 mv stylegan2-ffhq-512x512.pkl faces.pkl
 curl -o cats.pkl https://nvlabs-fi-cdn.nvidia.com/stylegan2-ada-pytorch/pretrained/afhqcat.pkl 
