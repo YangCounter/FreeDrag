@@ -205,7 +205,7 @@ with demo:
              This parameter only affects the visualization of intermediate results and does not have any impact on the final outcome. 
              For high-resolution images(such as model of dog), a larger sample_interval can significantly accelerate the dragging process.
              
-             **Eepected initial loss and Max distance**: In the current version, both of these values are empirically set for each model. 
+             **Expected initial loss and Max distance**: In the current version, both of these values are empirically set for each model. 
              Generally, for precise editing needs (e.g., merging eyes), smaller values are recommended, which may causes longer processing times. 
              Users can set these values according to practical editing requirements. We are currently seeking an automated solution.
              
