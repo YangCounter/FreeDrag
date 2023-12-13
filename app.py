@@ -195,7 +195,7 @@ with demo:
             """
             # **FreeDrag**
             
-            Official implementation of [FreeDrag: Point Tracking is Not What You Need for Interactive Point-based Image Editing](https://github.com/LPengYang/FreeDrag)
+            Official implementation of [FreeDrag: Feature Dragging for Reliable Point-based Image Editing](https://github.com/LPengYang/FreeDrag)
 
             
             ## Parameter Description
@@ -207,7 +207,7 @@ with demo:
              
              **Expected initial loss and Max distance**: In the current version, both of these values are empirically set for each model. 
              Generally, for precise editing needs (e.g., merging eyes), smaller values are recommended, which may causes longer processing times. 
-             Users can set these values according to practical editing requirements. We are currently seeking an automated solution.
+             Users can set these values according to practical editing requirements. 
              
              **frame_rate**: the frame rate for saved video.
              
